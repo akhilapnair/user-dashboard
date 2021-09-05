@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,6 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent {
   title = 'user-dashboard';
-  constructor(private primengConfig: PrimeNGConfig) {}
 
-  ngOnInit() {
-      this.primengConfig.ripple = true;
-  }
 
 }

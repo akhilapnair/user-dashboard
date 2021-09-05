@@ -1,0 +1,24 @@
+.register {
+    justify-content: center;
+    display: flex;
+    &-wrap {
+        width: 500px;
+    }
+    &-gender {
+        display: flex;
+        gap: 10px;
+    }
+    .invalid-feedback {
+        display: block;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 0.875em;
+        color: #dc3545;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+

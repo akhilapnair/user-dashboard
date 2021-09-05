@@ -1,1 +1,167 @@
-<p>create-user works!</p>
+​
+<div class="register">
+  <div class="card register-wrap">
+    <div class="card-body">
+      <h3 class="card-title text-center">Create User</h3>
+      <div class="card-text">
+        <form [formGroup]="createUserForm">
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Name"
+              formControlName="name"
+            />
+            <div *ngIf="submitted && f.name?.errors" class="invalid-feedback">
+              <div *ngIf="f.name?.errors?.required">Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Email"
+              formControlName="email"
+            />
+            <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
+              <div *ngIf="f.email?.errors?.required">Email is required</div>
+              <div *ngIf="f.email?.errors?.email">Please enter a valid email</div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              id="Password"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <div
+              *ngIf="submitted && f.password.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.password?.errors?.required">
+                Password is required
+              </div>
+              <div *ngIf="f.password?.errors?.minlength">
+                Minimum length should be 6
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Phone Number"
+              formControlName="phone"
+            />
+            <div *ngIf="submitted && f.phone?.errors" class="invalid-feedback">
+              <div *ngIf="f.phone?.errors?.required">Phone is required</div>
+            </div>
+          </div>
+          <div>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="role"
+            >
+              <option selected>Select Role</option>
+              <option value="1">Admin</option>
+              <option value="2">Manager</option>
+              <option value="3">HR</option>
+              <option value="3">Developer</option>
+            </select>
+            <div *ngIf="submitted && f.role?.errors" class="invalid-feedback">
+              <div *ngIf="f.role?.errors?.required">Role is required</div>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="form-group">
+              <label for="date">Joining Date</label>
+              <ngx-datepicker formControlName="date"></ngx-datepicker>
+              <div *ngIf="submitted && f.date?.errors" class="invalid-feedback">
+                <div *ngIf="f.date?.errors?.required">
+                  Joining date is required
+                </div>
+              </div>
+              <!-- <input  class="form-control" formControlName="name" > -->
+            </div>
+            <div class="form-group">
+              <label for="dob">Dob</label>
+              <ngx-datepicker formControlName="dob"></ngx-datepicker>
+              <div *ngIf="submitted && f.dob?.errors" class="invalid-feedback">
+                <div *ngIf="f.dob?.errors?.required">DOB is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="gende">Gender</label>
+            <div class="register-gender">
+              <div>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="male"
+                  formControlName="gender"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Male
+                </label>
+              </div>
+              <div>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="female"
+                  formControlName="gender"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Female
+                </label>
+              </div>
+              <div>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="other"
+                  formControlName="gender"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Other
+                </label>
+              </div>
+            </div>
+            <div *ngIf="submitted && f.gender?.errors" class="invalid-feedback">
+              <div *ngIf="f.gender?.errors?.required">Gender is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              placeholder="Address"
+              id="floatingTextarea"
+              formControlName="address"
+            ></textarea>
+            <div
+              *ngIf="submitted && f.address?.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.address?.errors?.required">Address is required</div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            (click)="registerUser(createUserForm.value)"
+          >
+          {{btnValue}}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
